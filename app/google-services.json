@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "2412165453",
+    "firebase_url": "https://godeliver-864ad.firebaseio.com",
+    "project_id": "godeliver-864ad",
+    "storage_bucket": "godeliver-864ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2412165453:android:7666dfbad21c08e2a61f04",
+        "android_client_info": {
+          "package_name": "com.example.godeliver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2412165453-n1olnu5ft2c7oacecb5qtk62vikrk1lv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.godeliver",
+            "certificate_hash": "ca1138bfb72c875ba4fe1f6c3153c286bd1518e7"
+          }
+        },
+        {
+          "client_id": "2412165453-jq2l9lbdacnaf1u4nl7aq4fjgpade2sb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvdd9I383K161hvlyA1jupS4ovPLdIX4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2412165453-jq2l9lbdacnaf1u4nl7aq4fjgpade2sb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
