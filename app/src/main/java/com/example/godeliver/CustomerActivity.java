@@ -89,6 +89,13 @@ public class CustomerActivity extends AppCompatActivity {
 
             }
         });
+
+        findViewById(R.id.forget_password_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ForgetAndChangePasswordActivity.class).putExtra("Mode", 0));
+            }
+        });
     }
 
 
