@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
         mDriver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, DriverLoginActivity.class);
+                Intent intent = new Intent(HomeActivity.this, DriverActivity.class);
                 startActivity(intent);
                 finish();
                 return;
@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         mCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, CustomerLoginActivity.class);
+                Intent intent = new Intent(HomeActivity.this, CustomerActivity.class);
                 startActivity(intent);
                 finish();
                 return;
