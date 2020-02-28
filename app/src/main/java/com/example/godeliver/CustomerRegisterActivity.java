@@ -25,6 +25,8 @@ public class CustomerRegisterActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private Button btnSignUp, btnLogin;
     private ProgressDialog PD;
+    private Button mLogin, mRegistration;
+    private EditText mEmail, mPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,28 @@ public class CustomerRegisterActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.password);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         btnLogin = (Button) findViewById(R.id.sign_in_button);
+        mRegistration = (Button) findViewById(R.id.registration);
+
+        mRegistration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String email = mEmail.getText().toString();
+                final String password = mPassword.getText().toString();
+                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(CustomerRegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(!task.isSuccessful()){
+                            Toast.makeText(CustomerRegisterActivity.this, "sign up error", Toast.LENGTH_SHORT).show();
+                        }else{
+                            String user_id = auth.getCurrentUser().getUid();
+                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Customers").child(user_id);
+                            current_user_db.setValue(true);
+                        }
+                    }
+                });
+            }
+        });
+
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,9 +97,6 @@ public class CustomerRegisterActivity extends AppCompatActivity {
                                             Intent intent = new Intent(CustomerRegisterActivity.this, CustomerLoginActivity.class);
                                             startActivity(intent);
                                             finish();
-                                            String user_id = auth.getCurrentUser().getUid();
-                                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Customers").child(user_id).child("name");
-                                            current_user_db.setValue(email);
                                         }
                                         PD.dismiss();
                                     }
@@ -85,9 +106,6 @@ public class CustomerRegisterActivity extends AppCompatActivity {
                                 CustomerRegisterActivity.this,
                                 "Fill All Fields",
                                 Toast.LENGTH_LONG).show();
-                        String user_id = auth.getCurrentUser().getUid();
-                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Customers").child(user_id).child("name");
-                        current_user_db.setValue(email);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

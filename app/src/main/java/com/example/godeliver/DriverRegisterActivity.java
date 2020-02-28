@@ -75,9 +75,6 @@ public class DriverRegisterActivity extends AppCompatActivity {
                                             Intent intent = new Intent(DriverRegisterActivity.this, DriverLoginActivity.class);
                                             startActivity(intent);
                                             finish();
-                                            String user_id = auth.getCurrentUser().getUid();
-                                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id).child("name");
-                                            current_user_db.setValue(email);
                                         }
                                         PD.dismiss();
                                     }

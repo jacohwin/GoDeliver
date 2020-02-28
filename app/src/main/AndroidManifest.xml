@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DriverActivity"></activity>
+        <activity android:name=".MpesaPaymetsActivity"></activity>
+        <activity android:name=".DriverActivity" />
         <activity android:name=".CustomerActivity" />
         <activity android:name=".CustomerSettingsActivity" />
         <activity android:name=".DriverSettingsActivity" />
