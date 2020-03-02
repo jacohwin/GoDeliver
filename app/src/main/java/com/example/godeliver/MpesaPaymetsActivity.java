@@ -73,8 +73,8 @@ public class MpesaPaymetsActivity extends AppCompatActivity implements View.OnCl
                     "174379",
                     phonenumber,
                     "http://mycallbackurl.com/checkout.php",
-                    "001ABC",
-                    "Payment for goods and services of company A"
+                    "123456",
+                    "Payment for delivery costs"
             );
             daraja.requestMPESAExpress(lnmExpress,
                     new DarajaListener<LNMResult>() {

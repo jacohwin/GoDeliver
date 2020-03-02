@@ -128,7 +128,7 @@ public class CustomerMapsActivity extends FragmentActivity implements OnMapReady
             @Override
             public void onClick(View view) {
 //                pb.setVisibility(View.VISIBLE);
-                Intent intent = new Intent(CustomerMapsActivity.this, MpesaPaymetsActivity.class);
+                Intent intent = new Intent(CustomerMapsActivity.this, MPESAExpressActivity.class);
                 startActivity(intent);
             }
         });

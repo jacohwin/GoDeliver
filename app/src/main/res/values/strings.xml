@@ -16,4 +16,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_customer_maps">Map</string>
     <string name="title_activity_driver_maps">Map</string>
+
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="request_mpesaexpress">Request MPESAExpress</string>
 </resources>
