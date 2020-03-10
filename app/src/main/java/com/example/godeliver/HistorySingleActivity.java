@@ -2,6 +2,7 @@ package com.example.godeliver;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -20,6 +21,7 @@ import com.directions.route.Route;
 import com.directions.route.RouteException;
 import com.directions.route.Routing;
 import com.directions.route.RoutingListener;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -82,9 +84,9 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_single);
 
-        Intent intent = new Intent(this, PayPalService.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-        startService(intent);
+//        Intent intent = new Intent(this, PayPalService.class);
+//        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+//        startService(intent);
 
         polylines = new ArrayList<>();
 
@@ -294,7 +296,11 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap=googleMap;
+        mMap.setMyLocationEnabled(true);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+
     }
 
 
