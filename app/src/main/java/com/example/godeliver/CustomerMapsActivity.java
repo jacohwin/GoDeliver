@@ -96,6 +96,8 @@ public class CustomerMapsActivity extends FragmentActivity implements OnMapReady
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_maps);
 
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -116,7 +118,7 @@ public class CustomerMapsActivity extends FragmentActivity implements OnMapReady
         mRatingBar = (RatingBar) findViewById(R.id.ratingBar);
 
         mRadioGroup = (RadioGroup) findViewById(R.id.radioGroup);
-        mRadioGroup.check(R.id.UberX);
+        mRadioGroup.check(R.id.Motor_Bike);
 
         mLogout = (Button) findViewById(R.id.logout);
         mRequest = (Button) findViewById(R.id.request);
@@ -343,7 +345,7 @@ public class CustomerMapsActivity extends FragmentActivity implements OnMapReady
                     float distance = loc1.distanceTo(loc2);
 
                     if (distance<100){
-                        mRequest.setText("Driver's Here");
+                        mRequest.setText("Driver is Here");
                     }else{
                         mRequest.setText("Driver Found: " + String.valueOf(distance));
                     }
@@ -455,7 +457,7 @@ public class CustomerMapsActivity extends FragmentActivity implements OnMapReady
         if (mDriverMarker != null){
             mDriverMarker.remove();
         }
-        mRequest.setText("call Uber");
+        mRequest.setText("Make a delivery order");
 
         mDriverInfo.setVisibility(View.GONE);
         mDriverName.setText("");
@@ -485,7 +487,8 @@ public class CustomerMapsActivity extends FragmentActivity implements OnMapReady
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED){
 
             }else{
                 checkLocationPermission();

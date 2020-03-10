@@ -3,11 +3,14 @@ package com.example.godeliver;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.androidstudy.daraja.Daraja;
@@ -28,6 +31,8 @@ public class MPESAExpressActivity extends AppCompatActivity {
     EditText editTextPhoneNumber;
     @BindView(R.id.sendButton)
     Button sendButton;
+    @BindView(R.id.progressBar)
+    ProgressBar mLoad;
 
     //Declare Daraja :: Global Variable
     Daraja daraja;
@@ -65,6 +70,8 @@ public class MPESAExpressActivity extends AppCompatActivity {
                 editTextPhoneNumber.setError("Please Provide a Phone Number");
                 return;
             }
+            mLoad.setVisibility(View.VISIBLE);
+
 
             //TODO :: REPLACE WITH YOUR OWN CREDENTIALS  :: THIS IS SANDBOX DEMO
             LNMExpress lnmExpress = new LNMExpress(
@@ -75,8 +82,8 @@ public class MPESAExpressActivity extends AppCompatActivity {
                     "254799760387",
                     "174379",
                     phoneNumber,
-                    "http://godeliver.com/lipanaMpesa",
-                    "123456",
+                    "http://mycallbackurl.com/checkout.php",
+                    "001ABC",
                     "Delivery Payment to GoDeliver Delivery Platform"
             );
 
@@ -86,6 +93,7 @@ public class MPESAExpressActivity extends AppCompatActivity {
                         @Override
                         public void onResult(@NonNull LNMResult lnmResult) {
                             Log.i(MPESAExpressActivity.this.getClass().getSimpleName(), lnmResult.ResponseDescription);
+
                         }
 
                         @Override
@@ -94,6 +102,9 @@ public class MPESAExpressActivity extends AppCompatActivity {
                         }
                     }
             );
+
         });
+
+
     }
 }

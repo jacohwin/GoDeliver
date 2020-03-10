@@ -58,7 +58,7 @@ public class MpesaPaymetsActivity extends AppCompatActivity implements View.OnCl
                 mNumber.setError("Invalid number");
                 return;
             }
-            //check validity of a number
+            //check validity of amount
             else if(Integer.valueOf(Amount) <= 0){
                 mAmount.setError("Amount should be more than 0");
                 return;

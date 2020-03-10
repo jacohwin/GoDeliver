@@ -25,11 +25,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MPESAExpressActivity"
-            android:parentActivityName=".CustomerMapsActivity">
-        </activity>
-        <activity android:name=".MpesaPaymetsActivity"
-            android:parentActivityName=".CustomerMapsActivity"/>
+        <activity android:name=".PayPalActivity"></activity>
+        <activity android:name=".PaymentActivity" />
+        <activity
+            android:name=".MPESAExpressActivity"
+            android:noHistory="true"
+            android:parentActivityName=".CustomerMapsActivity" />
+        <activity
+            android:name=".MpesaPaymetsActivity"
+            android:parentActivityName=".CustomerMapsActivity" />
         <activity android:name=".DriverActivity" />
         <activity android:name=".CustomerActivity" />
         <activity android:name=".CustomerSettingsActivity" />
@@ -47,6 +51,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="ocr" />
 
         <activity
             android:name=".DriverMapsActivity"
@@ -69,7 +76,6 @@
         <activity
             android:name=".DriverRegisterActivity"
             android:parentActivityName=".DriverLoginActivity" />
-        <activity android:name=".GoogleActivity" />
         <activity android:name=".ForgetAndChangePasswordActivity" />
         <activity android:name=".CustomerLoginActivity" />
         <activity

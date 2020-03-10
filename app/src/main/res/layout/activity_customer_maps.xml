@@ -36,7 +36,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/settings"
-                android:text="Settings"/>
+                android:text="Profile"/>
         </LinearLayout>
 
          <androidx.cardview.widget.CardView
@@ -120,24 +120,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Motor Bike"
-                    android:id="@+id/UberX"/>
+                    android:id="@+id/Motor_Bike"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Roll"
-                    android:id="@+id/UberBlack"/>
+                    android:id="@+id/roll"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Truck"
-                    android:id="@+id/UberXl"/>
+                    android:id="@+id/truck"/>
             </RadioGroup>
 
             <Button
                 android:layout_gravity="bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Call Driver"
+                android:text="Make a delivery order"
                 android:id="@+id/request"/>
 
             <Button

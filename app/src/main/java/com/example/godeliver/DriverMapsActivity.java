@@ -100,138 +100,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        polylines = new List<Polyline>() {
-            @Override
-            public int size() {
-                return 0;
-            }
-
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-
-            @Override
-            public boolean contains(@Nullable Object o) {
-                return false;
-            }
-
-            @NonNull
-            @Override
-            public Iterator<Polyline> iterator() {
-                return null;
-            }
-
-            @NonNull
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @NonNull
-            @Override
-            public <T> T[] toArray(@NonNull T[] a) {
-                return null;
-            }
-
-            @Override
-            public boolean add(Polyline polyline) {
-                return false;
-            }
-
-            @Override
-            public boolean remove(@Nullable Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(@NonNull Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(@NonNull Collection<? extends Polyline> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(int index, @NonNull Collection<? extends Polyline> c) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(@NonNull Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(@NonNull Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
-            }
-
-            @Override
-            public boolean equals(@Nullable Object o) {
-                return false;
-            }
-
-            @Override
-            public int hashCode() {
-                return 0;
-            }
-
-            @Override
-            public Polyline get(int index) {
-                return null;
-            }
-
-            @Override
-            public Polyline set(int index, Polyline element) {
-                return null;
-            }
-
-            @Override
-            public void add(int index, Polyline element) {
-
-            }
-
-            @Override
-            public Polyline remove(int index) {
-                return null;
-            }
-
-            @Override
-            public int indexOf(@Nullable Object o) {
-                return 0;
-            }
-
-            @Override
-            public int lastIndexOf(@Nullable Object o) {
-                return 0;
-            }
-
-            @NonNull
-            @Override
-            public ListIterator<Polyline> listIterator() {
-                return null;
-            }
-
-            @NonNull
-            @Override
-            public ListIterator<Polyline> listIterator(int index) {
-                return null;
-            }
-
-            @NonNull
-            @Override
-            public List<Polyline> subList(int fromIndex, int toIndex) {
-                return null;
-            }
-        };
+        polylines = new ArrayList<>();
 
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -275,7 +144,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
                         if(destinationLatLng.latitude!=0.0 && destinationLatLng.longitude!=0.0){
                             getRouteToMarker(destinationLatLng);
                         }
-                        mRideStatus.setText("drive completed");
+                        mRideStatus.setText("delivery completed");
 
                         break;
                     case 2:
@@ -294,7 +163,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
                 disconnectDriver();
 
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(DriverMapsActivity.this, HistoryActivity.class);
+                Intent intent = new Intent(DriverMapsActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 return;
@@ -336,8 +205,6 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
                     endRide();
                 }
             }
-
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -451,7 +318,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
 
 
     private void endRide(){
-        mRideStatus.setText("picked customer");
+        mRideStatus.setText("picked package");
         erasePolylines();
 
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -602,9 +469,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
         }
     }
 
-
-
-
+    
 
     private void connectDriver(){
         checkLocationPermission();
@@ -638,15 +503,9 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
             Toast.makeText(this, "Something went wrong, Try again", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
     @Override
     public void onRoutingStart() {
     }
-
-
-
     @Override
     public void onRoutingSuccess(ArrayList<Route> route, int shortestRouteIndex) {
         if(polylines.size()>0) {

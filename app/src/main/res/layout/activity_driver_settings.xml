@@ -44,17 +44,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Motor Bike"
-            android:id="@+id/UberX"/>
+            android:id="@+id/Motor_Bike"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Roll"
-            android:id="@+id/UberBlack"/>
+            android:id="@+id/roll"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Truck"
-            android:id="@+id/UberXl"/>
+            android:id="@+id/truck"/>
     </RadioGroup>
 
     <Button
