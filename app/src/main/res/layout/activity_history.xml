@@ -17,7 +17,7 @@
             android:padding="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Balance: 0€"
+            android:text="Balance: 0kshs"
             android:id="@+id/balance"
             android:visibility="gone"/>
         <EditText
@@ -34,29 +34,30 @@
             android:id="@+id/payout"/>
     </LinearLayout>
 
-<!--    <android.support.widget.NestedScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:clipToPadding="false"-->
-<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
-<!--        <android.support.widget.RecyclerView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/historyRecyclerView"-->
-<!--            android:scrollbars="vertical">-->
-<!--        </android.support.widget.RecyclerView>-->
-
-<!--    </android.support.widget.NestedScrollView>-->
-
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView            android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/historyRecyclerView"
             android:scrollbars="vertical">
         </androidx.recyclerview.widget.RecyclerView>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+<!--        <androidx.recyclerview.widget.RecyclerView      -->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/historyRecyclerView"-->
+<!--            android:scrollbars="vertical">-->
+<!--        </androidx.recyclerview.widget.RecyclerView>-->
+
+<!--    </androidx.core.widget.NestedScrollView>-->
 
 </LinearLayout>
