@@ -469,7 +469,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
         }
     }
 
-    
+
 
     private void connectDriver(){
         checkLocationPermission();
