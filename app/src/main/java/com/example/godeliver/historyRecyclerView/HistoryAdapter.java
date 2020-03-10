@@ -1,19 +1,14 @@
 package com.example.godeliver.historyRecyclerView;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.godeliver.R;
-
 import java.util.List;
 
 /**
- * Created by manel on 03/04/2017.
+ * Created by jacohwin on 03/04/2020.
  */
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryViewHolders> {

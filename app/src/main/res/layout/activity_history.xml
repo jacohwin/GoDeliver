@@ -34,18 +34,29 @@
             android:id="@+id/payout"/>
     </LinearLayout>
 
-    <android.support.widget.NestedScrollView
+<!--    <android.support.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:clipToPadding="false"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+<!--        <android.support.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/historyRecyclerView"-->
+<!--            android:scrollbars="vertical">-->
+<!--        </android.support.widget.RecyclerView>-->
+
+<!--    </android.support.widget.NestedScrollView>-->
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <android.support.widget.RecyclerView
-            android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/historyRecyclerView"
             android:scrollbars="vertical">
-        </android.support.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
 
-    </android.support.widget.NestedScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>
