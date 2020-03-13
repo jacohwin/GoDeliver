@@ -130,7 +130,8 @@ public class HistoryActivity extends AppCompatActivity {
 
                     if(dataSnapshot.child("customerPaid").getValue() != null && dataSnapshot.child("driverPaidOut").getValue() == null){
                         if(dataSnapshot.child("distance").getValue() != null){
-                            ridePrice = Double.valueOf(dataSnapshot.child("price").getValue().toString());
+//                            ridePrice = Double.valueOf(dataSnapshot.child("price").getValue().toString());
+                            ridePrice = (Double.valueOf(distance) * 0.4);
                             Balance += ridePrice;
                             mBalance.setText("Balance: " + String.valueOf(Balance) + " $");
                         }
@@ -185,7 +186,7 @@ public class HistoryActivity extends AppCompatActivity {
                 postData.toString());
 
         final Request request = new Request.Builder()
-                .url("https://us-central1-uberapp-408c8.cloudfunctions.net/payout")
+                .url(" https://us-central1-godeliver-864ad.cloudfunctions.net/payout")
                 .post(body)
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Authorization", "Your Token")
@@ -211,7 +212,7 @@ public class HistoryActivity extends AppCompatActivity {
                         case 200:
                             Snackbar.make(findViewById(R.id.layout), "Payout Successful!", Snackbar.LENGTH_LONG).show();
                             break;
-                        case 501:
+                        case 500:
                             Snackbar.make(findViewById(R.id.layout), "Error: no payout available", Snackbar.LENGTH_LONG).show();
                             break;
                         default:

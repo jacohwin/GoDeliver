@@ -84,9 +84,9 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_single);
 
-//        Intent intent = new Intent(this, PayPalService.class);
-//        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-//        startService(intent);
+        Intent intent = new Intent(this, PayPalService.class);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+        startService(intent);
 
         polylines = new ArrayList<>();
 
@@ -196,13 +196,14 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
         });
     }
 
-    private int PAYPAL_REQUEST_CODE = 1;
+
+    private int PAYPAL_REQUEST_CODE = 123456;
     private static PayPalConfiguration config = new PayPalConfiguration()
-            .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX);
-//            .clientId(PayPalConfig.PAYPAL_CLIENT_ID);
+            .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
+            .clientId(PayPalConfig.PAYPAL_CLIENT_ID);
 
     private void payPalPayment() {
-        PayPalPayment payment = new PayPalPayment(new BigDecimal(ridePrice), "USD", "Uber Ride",
+        PayPalPayment payment = new PayPalPayment(new BigDecimal(ridePrice), "USD", "GoDeliver",
                 PayPalPayment.PAYMENT_INTENT_SALE);
 
         Intent intent = new Intent(this, PaymentActivity.class);
