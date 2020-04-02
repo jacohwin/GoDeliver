@@ -8,6 +8,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash1"
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
@@ -27,25 +28,34 @@
         android:layout_height="wrap_content"
         android:progress="@integer/google_play_services_version"/>
 
-
-
-    <Button
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Driver"
-        android:id="@+id/driver"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Customer"
-        android:id="@+id/customer"/>
+        android:background="@color/quantum_amber50">
 
-    <ImageView
-        android:src="@drawable/track"
-        android:layout_width="400dp"
-        android:layout_height="500dp"
-        android:layout_marginBottom="24dp"
-        android:layout_gravity="center_horizontal" />
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/oxygen_bold"
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:text="Driver"
+            android:id="@+id/driver"/>
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/oxygen_bold"
+            android:backgroundTint="@color/cardview_shadow_start_color"
+            android:text="Customer"
+            android:id="@+id/customer"/>
 
+    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
 <!--</ScrollView>-->

@@ -29,19 +29,19 @@
                 android:layout_height="wrap_content"
                 android:text="From - To"
                 android:layout_marginBottom="20sp"
-                android:id="@+id/rideLocation"/>
+                android:id="@+id/deliveryLocation"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="distance"
                 android:layout_marginBottom="20sp"
-                android:id="@+id/rideDistance"/>
+                android:id="@+id/deliveryDistance"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="date"
                 android:layout_marginBottom="20sp"
-                android:id="@+id/rideDate"/>
+                android:id="@+id/deliveryDate"/>
         </LinearLayout>
 
         <LinearLayout
@@ -80,13 +80,13 @@
             android:layout_gravity="center"
             android:numStars="5"
             android:stepSize="1"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/pay"
             android:text="Pay Here"
-            android:visibility="visible"
+            android:visibility="gone"
             android:enabled="false"/>
     </LinearLayout>
 

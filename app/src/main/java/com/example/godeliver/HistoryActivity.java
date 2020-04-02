@@ -88,6 +88,7 @@ public class HistoryActivity extends AppCompatActivity {
         mPayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 payoutRequest();
             }
         });
@@ -130,8 +131,8 @@ public class HistoryActivity extends AppCompatActivity {
 
                     if(dataSnapshot.child("customerPaid").getValue() != null && dataSnapshot.child("driverPaidOut").getValue() == null){
                         if(dataSnapshot.child("distance").getValue() != null){
-//                            ridePrice = Double.valueOf(dataSnapshot.child("price").getValue().toString());
-                            ridePrice = (Double.valueOf(distance) * 0.4);
+                            ridePrice = Double.valueOf(dataSnapshot.child("price").getValue().toString());
+//                            ridePrice = (Double.valueOf(distance) * 0.4);
                             Balance += ridePrice;
                             mBalance.setText("Balance: " + String.valueOf(Balance) + " $");
                         }
@@ -158,6 +159,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     private ArrayList resultsHistory = new ArrayList<HistoryObject>();
     private ArrayList<HistoryObject> getDataSetHistory() {
+
         return resultsHistory;
     }
 
@@ -212,7 +214,7 @@ public class HistoryActivity extends AppCompatActivity {
                         case 200:
                             Snackbar.make(findViewById(R.id.layout), "Payout Successful!", Snackbar.LENGTH_LONG).show();
                             break;
-                        case 500:
+                        case 501:
                             Snackbar.make(findViewById(R.id.layout), "Error: no payout available", Snackbar.LENGTH_LONG).show();
                             break;
                         default:

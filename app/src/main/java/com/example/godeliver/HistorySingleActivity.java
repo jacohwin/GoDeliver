@@ -58,9 +58,9 @@ import java.util.Map;
 public class HistorySingleActivity extends AppCompatActivity implements OnMapReadyCallback, RoutingListener {
     private String rideId, currentUserId, customerId, driverId, userDriverOrCustomer;
 
-    private TextView rideLocation;
-    private TextView rideDistance;
-    private TextView rideDate;
+    private TextView deliveryLocation;
+    private TextView deliveryDistance;
+    private TextView deliveryDate;
     private TextView userName;
     private TextView userPhone;
 
@@ -74,7 +74,7 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
 
     private LatLng destinationLatLng, pickupLatLng;
     private String distance;
-    private Double ridePrice;
+    private Double deliveryPrice;
     private Boolean customerPaid = false;
 
     private GoogleMap mMap;
@@ -96,9 +96,9 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
         mMapFragment.getMapAsync(this);
 
 
-        rideLocation = (TextView) findViewById(R.id.rideLocation);
-        rideDistance = (TextView) findViewById(R.id.rideDistance);
-        rideDate = (TextView) findViewById(R.id.rideDate);
+        deliveryLocation = (TextView) findViewById(R.id.deliveryLocation);
+        deliveryDistance = (TextView) findViewById(R.id.deliveryDistance);
+        deliveryDate = (TextView) findViewById(R.id.deliveryDate);
         userName = (TextView) findViewById(R.id.userName);
         userPhone = (TextView) findViewById(R.id.userPhone);
 
@@ -138,7 +138,7 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
                             }
                         }
                         if (child.getKey().equals("timestamp")){
-                            rideDate.setText(getDate(Long.valueOf(child.getValue().toString())));
+                            deliveryDate.setText(getDate(Long.valueOf(child.getValue().toString())));
                         }
                         if (child.getKey().equals("rating")){
                             mRatingBar.setRating(Integer.valueOf(child.getValue().toString()));
@@ -149,12 +149,12 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
                         }
                         if (child.getKey().equals("distance")){
                             distance = child.getValue().toString();
-                            rideDistance.setText(distance.substring(0, Math.min(distance.length(), 5)) + " km");
-                            ridePrice = Double.valueOf(distance) * 0.5;
+                            deliveryDistance.setText(distance.substring(0, Math.min(distance.length(), 5)) + " km");
+                            deliveryPrice = Double.valueOf(distance) * 0.5;
 
                         }
                         if (child.getKey().equals("destination")){
-                            rideLocation.setText(child.getValue().toString());
+                            deliveryLocation.setText(child.getValue().toString());
                         }
                         if (child.getKey().equals("location")){
                             pickupLatLng = new LatLng(Double.valueOf(child.child("from").child("lat").getValue().toString()), Double.valueOf(child.child("from").child("lng").getValue().toString()));
@@ -196,14 +196,13 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
         });
     }
 
-
-    private int PAYPAL_REQUEST_CODE = 123456;
+    private int PAYPAL_REQUEST_CODE = 1;
     private static PayPalConfiguration config = new PayPalConfiguration()
             .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
             .clientId(PayPalConfig.PAYPAL_CLIENT_ID);
 
     private void payPalPayment() {
-        PayPalPayment payment = new PayPalPayment(new BigDecimal(ridePrice), "USD", "GoDeliver",
+        PayPalPayment payment = new PayPalPayment(new BigDecimal(deliveryPrice), "USD", "GoDeliver",
                 PayPalPayment.PAYMENT_INTENT_SALE);
 
         Intent intent = new Intent(this, PaymentActivity.class);
@@ -248,12 +247,6 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
         super.onDestroy();
     }
 
-
-
-
-
-
-
     private void getUserInformation(String otherUserDriverOrCustomer, String otherUserId) {
         DatabaseReference mOtherUserDB = FirebaseDatabase.getInstance().getReference().child("Users").child(otherUserDriverOrCustomer).child(otherUserId);
         mOtherUserDB.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -297,11 +290,7 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
         mMap=googleMap;
-        mMap.setMyLocationEnabled(true);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-
     }
 
 
