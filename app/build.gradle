@@ -97,7 +97,7 @@ dependencies {
 //    androidTestImplementation 'androidx.test:runner:1.2.0'
     implementation 'com.google.android.gms:play-services-vision:9.4.0'
 
-
+    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
     implementation 'com.androidstudy:daraja:1.0.2'
     implementation 'com.androidstudy:daraja:1.0.2'

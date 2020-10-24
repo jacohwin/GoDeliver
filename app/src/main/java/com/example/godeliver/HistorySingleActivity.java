@@ -68,7 +68,7 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
 
     private RatingBar mRatingBar;
 
-    private Button mPay;
+    private Button mPay,mMpesaPay;
 
     private DatabaseReference historyRideInfoDb;
 
@@ -107,6 +107,7 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
         mRatingBar = (RatingBar) findViewById(R.id.ratingBar);
 
         mPay = findViewById(R.id.pay);
+        mMpesaPay = findViewById(R.id.mpesapay);
 
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -175,6 +176,7 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
     private void displayCustomerRelatedObjects() {
         mRatingBar.setVisibility(View.VISIBLE);
         mPay.setVisibility(View.VISIBLE);
+        mMpesaPay.setVisibility(View.VISIBLE);
         mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
@@ -185,13 +187,23 @@ public class HistorySingleActivity extends AppCompatActivity implements OnMapRea
         });
         if(customerPaid){
             mPay.setEnabled(false);
+            mMpesaPay.setEnabled(false);
         }else{
             mPay.setEnabled(true);
+            mMpesaPay.setEnabled(true);
         }
         mPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 payPalPayment();
+            }
+        });
+
+        mMpesaPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HistorySingleActivity.this, MPESAExpressActivity.class);
+                startActivity(intent);
             }
         });
     }

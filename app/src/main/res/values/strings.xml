@@ -19,4 +19,7 @@
 
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="request_mpesaexpress">Request MPESAExpress</string>
+
+    <string name="api_key">AIzaSyBTpq2aXpU-MsCALXcmCWpNE6-hNZ11mZI</string>
+
 </resources>

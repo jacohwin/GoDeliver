@@ -34,9 +34,15 @@
         android:id="@+id/confirm"
         android:text="confirm"/>
     <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/back"
+    android:text="back"/>
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/back"
-        android:text="back"/>
+        android:id="@+id/profile"
+        android:text="Edit Your Profile"/>
 
 </LinearLayout>

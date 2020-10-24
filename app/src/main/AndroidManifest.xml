@@ -39,6 +39,12 @@
         <activity android:name=".DriverSettingsActivity" />
         <activity android:name=".HistorySingleActivity" />
         <activity android:name=".HistoryActivity" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".CustomerLogin" />
+        <activity android:name=".CustomerRegister"/>
+        <activity android:name=".CustomerMainActivity"/>
+        <activity android:name=".DriverLogin" />
+        <activity android:name=".DriverRegister"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -69,17 +75,7 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <activity android:name=".HomeActivity" />
-        <activity
-            android:name=".CustomerRegisterActivity"
-            android:parentActivityName=".CustomerLoginActivity" />
-        <activity
-            android:name=".DriverRegisterActivity"
-            android:parentActivityName=".DriverLoginActivity" />
         <activity android:name=".ForgetAndChangePasswordActivity" />
-        <activity android:name=".CustomerLoginActivity" />
-        <activity
-            android:name=".DriverLoginActivity"
-            android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreen">
@@ -89,10 +85,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

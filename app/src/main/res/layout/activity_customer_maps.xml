@@ -138,17 +138,6 @@
                 android:text="Make a delivery order"
                 android:id="@+id/request"/>
 
-            <Button
-                android:id="@+id/payments"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
-                android:text=" Make Payments"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
         </LinearLayout>
     </LinearLayout>
 

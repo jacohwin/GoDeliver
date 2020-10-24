@@ -36,7 +36,7 @@ import java.util.Map;
 public class CustomerSettingsActivity extends AppCompatActivity {
     private EditText mNameField, mPhoneField;
 
-    private Button mBack, mConfirm;
+    private Button mBack, mConfirm, mProfile;
 
     private ImageView mProfileImage;
 
@@ -63,6 +63,7 @@ public class CustomerSettingsActivity extends AppCompatActivity {
 
         mBack = (Button) findViewById(R.id.back);
         mConfirm = (Button) findViewById(R.id.confirm);
+        mProfile = (Button) findViewById(R.id.profile);
 
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getCurrentUser().getUid();
@@ -91,6 +92,15 @@ public class CustomerSettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
                 return;
+            }
+        });
+
+        mProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CustomerSettingsActivity.this, CustomerMainActivity.class);
+                startActivity(intent);
+
             }
         });
     }

@@ -88,6 +88,19 @@
             android:text="Pay Here"
             android:visibility="gone"
             android:enabled="false"/>
+
+
+        <Button
+            android:id="@+id/mpesapay"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:text=" Make Payments"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

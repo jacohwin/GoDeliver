@@ -67,7 +67,7 @@ public class CustomerMapsActivity extends FragmentActivity implements OnMapReady
 
     private FusedLocationProviderClient mFusedLocationClient;
 
-    private Button mLogout, mRequest, mSettings, mHistory, mPayments;
+    private Button mLogout, mRequest, mSettings, mHistory;
 
     private LatLng pickupLocation;
 
@@ -105,6 +105,9 @@ public class CustomerMapsActivity extends FragmentActivity implements OnMapReady
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        String apiKey = getString(R.string.api_key);
+
+
         destinationLatLng = new LatLng(0.0,0.0);
 
         mDriverInfo = (LinearLayout) findViewById(R.id.driverInfo);
@@ -124,16 +127,6 @@ public class CustomerMapsActivity extends FragmentActivity implements OnMapReady
         mRequest = (Button) findViewById(R.id.request);
         mSettings = (Button) findViewById(R.id.settings);
         mHistory = (Button) findViewById(R.id.history);
-        mPayments = (Button) findViewById(R.id.payments);
-
-        mPayments.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                pb.setVisibility(View.VISIBLE);
-                Intent intent = new Intent(CustomerMapsActivity.this, MPESAExpressActivity.class);
-                startActivity(intent);
-            }
-        });
 
 
         mLogout.setOnClickListener(new View.OnClickListener() {

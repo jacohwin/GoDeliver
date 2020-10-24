@@ -163,7 +163,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
                 disconnectDriver();
 
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(DriverMapsActivity.this, MainActivity.class);
+                Intent intent = new Intent(DriverMapsActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
                 return;
