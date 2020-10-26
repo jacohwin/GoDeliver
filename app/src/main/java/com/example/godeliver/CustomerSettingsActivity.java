@@ -100,6 +100,7 @@ public class CustomerSettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CustomerSettingsActivity.this, CustomerMainActivity.class);
                 startActivity(intent);
+                return;
 
             }
         });
